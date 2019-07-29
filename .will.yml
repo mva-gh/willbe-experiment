@@ -1,0 +1,28 @@
+
+about :
+
+  name : willbe-experiment
+  version : 1.0.0
+
+path :
+
+  in : '.'
+  out : 'out'
+
+step  :
+
+  export.module :
+    export : './'
+    tar : 0
+    criterion :
+      proto : 1
+
+build :
+
+  proto.export :
+    criterion :
+      default : 1
+      proto : 1
+      export : 1
+    steps :
+      - step::export.module
