@@ -3,8 +3,8 @@ root:
   - willbe-experiment.out
 consistency:
   ../.ex.will.yml: &ref_0
-    hash: 33d883da4cbdb4869a4ce7951d7b0ac2
-    size: 497
+    hash: 9613b748be0531a8c340f00abea36ffc
+    size: 504
   ../.im.will.yml: &ref_1
     hash: 99bbfa7596b1d1892c5cd08fb558ba2f
     size: 62
@@ -64,24 +64,21 @@ module:
         criterion:
           default: 1
           export: 1
-        path: ..
+        path: ../proto
       exported.files.export:
         criterion:
           default: 1
           export: 1
         path:
-          - ..
-          - ../.ex.will.yml
-          - ../.im.will.yml
-          - ../README.md
-          - ../.git
+          - ../proto
+          - ../proto/File
     submodule: {}
     reflector:
       exported.export:
         src:
           filePath:
-            '*': ''
-          prefixPath: ..
+            '**': ''
+          prefixPath: ../proto
         mandatory: 1
         criterion:
           default: 1
@@ -101,7 +98,7 @@ module:
     step:
       export:
         opts:
-          export: '{path::in}/*'
+          export: '{path::in}/proto/**'
           tar: 0
         inherit:
           - module.export
@@ -180,24 +177,21 @@ module:
         criterion:
           default: 1
           export: 1
-        path: .
+        path: ./proto
       exported.files.export:
         criterion:
           default: 1
           export: 1
         path:
-          - .
-          - .ex.will.yml
-          - .im.will.yml
-          - README.md
-          - .git
+          - proto
+          - proto/File
     submodule: {}
     reflector:
       exported.export:
         src:
           filePath:
-            '*': ''
-          prefixPath: .
+            '**': ''
+          prefixPath: proto
         mandatory: 1
         criterion:
           default: 1
@@ -217,7 +211,7 @@ module:
     step:
       export:
         opts:
-          export: '{path::in}/*'
+          export: '{path::in}/proto/**'
           tar: 0
         inherit:
           - module.export
@@ -243,8 +237,8 @@ module:
           export: 1
     consistency:
       ../.ex.will.yml:
-        hash: 33d883da4cbdb4869a4ce7951d7b0ac2
-        size: 497
+        hash: 9613b748be0531a8c340f00abea36ffc
+        size: 504
       ../.im.will.yml:
         hash: 99bbfa7596b1d1892c5cd08fb558ba2f
         size: 62

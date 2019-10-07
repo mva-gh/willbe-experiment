@@ -18,7 +18,7 @@ step :
 
   export :
     inherit : module.export
-    export : '{path::in}/*'
+    export : '{path::in}/proto/**'
     tar : 0
 
 build :
