@@ -1,0 +1,31 @@
+
+about :
+
+  name : 'willbe-experiment'
+  version : '1.0.0'
+  enabled : 1
+  interpreters :
+  - njs >= 8.0.0
+  - chrome >= 60.0.0
+  - firefox >= 60.0.0
+
+path :
+
+  repository : git+https://github.com/volodymyrmigdal/willbe-experiment.git
+  bugtracker : https:///github.com/volodymyrmigdal/willbe-experiment/issues
+
+step :
+
+  export :
+    inherit : module.export
+    export : '{path::in}/*'
+    tar : 0
+
+build :
+
+  export :
+    criterion :
+      default : 1
+      export : 1
+    steps :
+      - export
