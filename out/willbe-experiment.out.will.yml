@@ -1,312 +1,244 @@
-format: willfile-1.0.0
-about:
-  name: willbe-experiment
-  enabled: 1
-  version: 1.0.0
-path:
-  module.willfiles:
-    path: willbe-experiment.out.will.yml
-    criterion:
-      predefined: 1
-  module.common:
-    path: willbe-experiment.out
-    criterion:
-      predefined: 1
-  module.original.willfiles:
-    path: ../.will.yml
-    criterion:
-      predefined: 1
-  local:
-    criterion:
-      predefined: 1
-  remote:
-    criterion:
-      predefined: 1
-  in:
-    path: .
-    criterion:
-      predefined: 0
-  out:
-    path: .
-    criterion:
-      predefined: 0
-  exported.dir.proto.export:
-    path: ..
-    criterion:
-      default: 1
-      proto: 1
-      export: 1
-  exported.files.proto.export:
-    path:
-      - ..
-      - ../.will.yml
-      - ../README.md
-      - ../.git
-      - ../.git/COMMIT_EDITMSG
-      - ../.git/config
-      - ../.git/description
-      - ../.git/HEAD
-      - ../.git/index
-      - ../.git/packed-refs
-      - ../.git/branches
-      - ../.git/hooks
-      - ../.git/hooks/applypatch-msg.sample
-      - ../.git/hooks/commit-msg.sample
-      - ../.git/hooks/fsmonitor-watchman.sample
-      - ../.git/hooks/post-update.sample
-      - ../.git/hooks/pre-applypatch.sample
-      - ../.git/hooks/pre-commit.sample
-      - ../.git/hooks/pre-push.sample
-      - ../.git/hooks/pre-rebase.sample
-      - ../.git/hooks/pre-receive.sample
-      - ../.git/hooks/prepare-commit-msg.sample
-      - ../.git/hooks/update.sample
-      - ../.git/info
-      - ../.git/info/exclude
-      - ../.git/logs
-      - ../.git/logs/HEAD
-      - ../.git/logs/refs
-      - ../.git/logs/refs/heads
-      - ../.git/logs/refs/heads/dev
-      - ../.git/logs/refs/heads/master
-      - ../.git/logs/refs/remotes
-      - ../.git/logs/refs/remotes/origin
-      - ../.git/logs/refs/remotes/origin/dev
-      - ../.git/logs/refs/remotes/origin/HEAD
-      - ../.git/objects
-      - ../.git/objects/19
-      - ../.git/objects/19/9b7dc3e553f28b47ccba9ad4e0a515cde4fac7
-      - ../.git/objects/46
-      - ../.git/objects/46/75f71677a8f3824594bc905cbe75344cef1291
-      - ../.git/objects/61
-      - ../.git/objects/61/6f7b433935cf10007a1e8aa40bb3ffd27e1ac0
-      - ../.git/objects/72
-      - ../.git/objects/72/43e4ce5acf826055530840a52f97d025feef58
-      - ../.git/objects/e4
-      - ../.git/objects/e4/6da5fff837ce2c355d21587501eb1efd21ba26
-      - ../.git/objects/fc
-      - ../.git/objects/fc/a4c8695f42aa0a1e3d3c10e869fec094703198
-      - ../.git/objects/info
-      - ../.git/objects/pack
-      - ../.git/refs
-      - ../.git/refs/heads
-      - ../.git/refs/heads/dev
-      - ../.git/refs/heads/master
-      - ../.git/refs/remotes
-      - ../.git/refs/remotes/origin
-      - ../.git/refs/remotes/origin/dev
-      - ../.git/refs/remotes/origin/HEAD
-      - ../.git/refs/tags
-    criterion:
-      default: 1
-      proto: 1
-      export: 1
-submodule: {}
-reflector:
-  exported.proto.export:
-    src:
-      filePath:
-        .: null
-      prefixPath: ..
-    criterion:
-      default: 1
-      proto: 1
-      export: 1
-    mandatory: 1
-  exported.files.proto.export:
-    src:
-      filePath:
-        'path::exported.files.proto.export': null
-      basePath: .
-      prefixPath: 'path::exported.dir.proto.export'
-    criterion:
-      default: 1
-      proto: 1
-      export: 1
-    recursive: 0
-    mandatory: 1
-step:
-  export.module:
-    criterion:
-      proto: 1
-    opts:
-      export: ./
-      tar: 0
-    inherit:
-      - module.export
-build:
-  proto.export:
-    criterion:
-      default: 1
-      proto: 1
-      export: 1
-    steps:
-      - 'step::export.module'
-exported:
-  proto.export:
-    version: 1.0.0
-    criterion:
-      default: 1
-      proto: 1
-      export: 1
-    exportedReflector: 'reflector::exported.proto.export'
-    exportedFilesReflector: 'reflector::exported.files.proto.export'
-    exportedDirPath: 'path::exported.dir.proto.export'
-    exportedFilesPath: 'path::exported.files.proto.export'
+format: outwillfile-2.0
+root:
+  - willbe-experiment.out
+consistency:
+  ../.ex.will.yml: &ref_0
+    hash: 9613b748be0531a8c340f00abea36ffc
+    size: 504
+  ../.im.will.yml: &ref_1
+    hash: 99bbfa7596b1d1892c5cd08fb558ba2f
+    size: 62
 module:
+  willbe-experiment.out:
+    about:
+      name: willbe-experiment
+      enabled: 1
+      version: 1.0.0
+      interpreters: &ref_2
+        - njs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+    path:
+      module.willfiles:
+        criterion:
+          predefined: 1
+        path: willbe-experiment.out.will.yml
+      module.common:
+        criterion:
+          predefined: 1
+        path: willbe-experiment.out
+      module.original.willfiles:
+        criterion:
+          predefined: 1
+        path:
+          - ../.ex.will.yml
+          - ../.im.will.yml
+      module.peer.willfiles:
+        criterion:
+          predefined: 1
+        path:
+          - ../.ex.will.yml
+          - ../.im.will.yml
+      local:
+        criterion:
+          predefined: 1
+        path: willbe-experiment.out
+      remote:
+        criterion:
+          predefined: 1
+      repository:
+        path: 'git+https://../github.com/volodymyrmigdal/willbe-experiment.git'
+      bugtracker:
+        path: 'https:///github.com/volodymyrmigdal/willbe-experiment/issues'
+      in:
+        criterion:
+          predefined: 0
+        path: .
+      temp:
+        path: .
+      out:
+        criterion:
+          predefined: 0
+        path: .
+      exported.dir.export:
+        criterion:
+          default: 1
+          export: 1
+        path: ../proto
+      exported.files.export:
+        criterion:
+          default: 1
+          export: 1
+        path:
+          - ../proto
+          - ../proto/File
+    submodule: {}
+    reflector:
+      exported.export:
+        src:
+          filePath:
+            '**': ''
+          prefixPath: ../proto
+        mandatory: 1
+        criterion:
+          default: 1
+          export: 1
+      exported.files.export:
+        src:
+          filePath:
+            'path::exported.files.export': ''
+          basePath: .
+          prefixPath: 'path::exported.dir.export'
+          recursive: 0
+        recursive: 0
+        mandatory: 1
+        criterion:
+          default: 1
+          export: 1
+    step:
+      export:
+        opts:
+          export: '{path::in}/proto/**'
+          tar: 0
+        inherit:
+          - module.export
+    build:
+      export:
+        steps:
+          - export
+        criterion:
+          default: 1
+          export: 1
+    exported:
+      export:
+        version: 1.0.0
+        recursive: 0
+        withIntegrated: 2
+        tar: 0
+        exportedReflector: 'reflector::exported.export'
+        exportedFilesReflector: 'reflector::exported.files.export'
+        exportedDirPath: 'path::exported.dir.export'
+        exportedFilesPath: 'path::exported.files.export'
+        criterion:
+          default: 1
+          export: 1
+    consistency:
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: willbe-experiment
       enabled: 1
       version: 1.0.0
+      interpreters: *ref_2
     path:
       module.willfiles:
-        path: .will.yml
         criterion:
           predefined: 1
+        path:
+          - .ex.will.yml
+          - .im.will.yml
       module.original.willfiles:
-        path: .will.yml
         criterion:
           predefined: 1
+        path:
+          - .ex.will.yml
+          - .im.will.yml
+      module.peer.willfiles:
+        criterion:
+          predefined: 1
+        path: out/willbe-experiment.out.will.yml
       module.common:
-        path: ./
         criterion:
           predefined: 1
+        path: ./
       local:
         criterion:
           predefined: 1
+        path: ./
       remote:
         criterion:
           predefined: 1
+      repository:
+        path: 'git+https://github.com/volodymyrmigdal/willbe-experiment.git'
+      bugtracker:
+        path: 'https:///github.com/volodymyrmigdal/willbe-experiment/issues'
       in:
-        path: .
         criterion:
           predefined: 0
-      out:
+        path: .
+      temp:
         path: out
+      out:
         criterion:
           predefined: 0
-      exported.dir.proto.export:
-        path: .
+        path: out
+      exported.dir.export:
         criterion:
           default: 1
-          proto: 1
           export: 1
-      exported.files.proto.export:
+        path: ./proto
+      exported.files.export:
+        criterion:
+          default: 1
+          export: 1
         path:
-          - .
-          - .will.yml
-          - README.md
-          - .git
-          - .git/COMMIT_EDITMSG
-          - .git/config
-          - .git/description
-          - .git/HEAD
-          - .git/index
-          - .git/packed-refs
-          - .git/branches
-          - .git/hooks
-          - .git/hooks/applypatch-msg.sample
-          - .git/hooks/commit-msg.sample
-          - .git/hooks/fsmonitor-watchman.sample
-          - .git/hooks/post-update.sample
-          - .git/hooks/pre-applypatch.sample
-          - .git/hooks/pre-commit.sample
-          - .git/hooks/pre-push.sample
-          - .git/hooks/pre-rebase.sample
-          - .git/hooks/pre-receive.sample
-          - .git/hooks/prepare-commit-msg.sample
-          - .git/hooks/update.sample
-          - .git/info
-          - .git/info/exclude
-          - .git/logs
-          - .git/logs/HEAD
-          - .git/logs/refs
-          - .git/logs/refs/heads
-          - .git/logs/refs/heads/dev
-          - .git/logs/refs/heads/master
-          - .git/logs/refs/remotes
-          - .git/logs/refs/remotes/origin
-          - .git/logs/refs/remotes/origin/dev
-          - .git/logs/refs/remotes/origin/HEAD
-          - .git/objects
-          - .git/objects/19
-          - .git/objects/19/9b7dc3e553f28b47ccba9ad4e0a515cde4fac7
-          - .git/objects/46
-          - .git/objects/46/75f71677a8f3824594bc905cbe75344cef1291
-          - .git/objects/61
-          - .git/objects/61/6f7b433935cf10007a1e8aa40bb3ffd27e1ac0
-          - .git/objects/72
-          - .git/objects/72/43e4ce5acf826055530840a52f97d025feef58
-          - .git/objects/e4
-          - .git/objects/e4/6da5fff837ce2c355d21587501eb1efd21ba26
-          - .git/objects/fc
-          - .git/objects/fc/a4c8695f42aa0a1e3d3c10e869fec094703198
-          - .git/objects/info
-          - .git/objects/pack
-          - .git/refs
-          - .git/refs/heads
-          - .git/refs/heads/dev
-          - .git/refs/heads/master
-          - .git/refs/remotes
-          - .git/refs/remotes/origin
-          - .git/refs/remotes/origin/dev
-          - .git/refs/remotes/origin/HEAD
-          - .git/refs/tags
-        criterion:
-          default: 1
-          proto: 1
-          export: 1
+          - proto
+          - proto/File
     submodule: {}
     reflector:
-      exported.proto.export:
+      exported.export:
         src:
           filePath:
-            .: null
-          prefixPath: .
-        criterion:
-          default: 1
-          proto: 1
-          export: 1
+            '**': ''
+          prefixPath: proto
         mandatory: 1
-      exported.files.proto.export:
-        src:
-          filePath:
-            'path::exported.files.proto.export': null
-          basePath: .
-          prefixPath: 'path::exported.dir.proto.export'
         criterion:
           default: 1
-          proto: 1
           export: 1
+      exported.files.export:
+        src:
+          filePath:
+            'path::exported.files.export': ''
+          basePath: .
+          prefixPath: 'path::exported.dir.export'
+          recursive: 0
         recursive: 0
         mandatory: 1
-    step:
-      export.module:
         criterion:
-          proto: 1
+          default: 1
+          export: 1
+    step:
+      export:
         opts:
-          export: ./
+          export: '{path::in}/proto/**'
           tar: 0
         inherit:
           - module.export
     build:
-      proto.export:
-        criterion:
-          default: 1
-          proto: 1
-          export: 1
+      export:
         steps:
-          - 'step::export.module'
-    exported:
-      proto.export:
-        version: 1.0.0
+          - export
         criterion:
           default: 1
-          proto: 1
           export: 1
-        exportedReflector: 'reflector::exported.proto.export'
-        exportedFilesReflector: 'reflector::exported.files.proto.export'
-        exportedDirPath: 'path::exported.dir.proto.export'
-        exportedFilesPath: 'path::exported.files.proto.export'
-  willbe-experiment.out: root
+    exported:
+      export:
+        version: 1.0.0
+        recursive: 0
+        withIntegrated: 2
+        tar: 0
+        exportedReflector: 'reflector::exported.export'
+        exportedFilesReflector: 'reflector::exported.files.export'
+        exportedDirPath: 'path::exported.dir.export'
+        exportedFilesPath: 'path::exported.files.export'
+        criterion:
+          default: 1
+          export: 1
+    consistency:
+      ../.ex.will.yml:
+        hash: 9613b748be0531a8c340f00abea36ffc
+        size: 504
+      ../.im.will.yml:
+        hash: 99bbfa7596b1d1892c5cd08fb558ba2f
+        size: 62
