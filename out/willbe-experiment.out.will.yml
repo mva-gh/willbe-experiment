@@ -39,10 +39,9 @@ module:
         path:
           - ../.ex.will.yml
           - ../.im.will.yml
-      local:
+      download:
         criterion:
           predefined: 1
-        path: willbe-experiment.out
       remote:
         criterion:
           predefined: 1
@@ -152,10 +151,9 @@ module:
         criterion:
           predefined: 1
         path: ./
-      local:
+      download:
         criterion:
           predefined: 1
-        path: ./
       remote:
         criterion:
           predefined: 1
@@ -173,41 +171,8 @@ module:
         criterion:
           predefined: 0
         path: out
-      exported.dir.export:
-        criterion:
-          default: 1
-          export: 1
-        path: ./proto
-      exported.files.export:
-        criterion:
-          default: 1
-          export: 1
-        path:
-          - proto
-          - proto/File
     submodule: {}
-    reflector:
-      exported.export:
-        src:
-          filePath:
-            '**': ''
-          prefixPath: proto
-        mandatory: 1
-        criterion:
-          default: 1
-          export: 1
-      exported.files.export:
-        src:
-          filePath:
-            'path::exported.files.export': ''
-          basePath: .
-          prefixPath: 'path::exported.dir.export'
-          recursive: 0
-        recursive: 0
-        mandatory: 1
-        criterion:
-          default: 1
-          export: 1
+    reflector: {}
     step:
       export:
         opts:
@@ -219,19 +184,6 @@ module:
       export:
         steps:
           - export
-        criterion:
-          default: 1
-          export: 1
-    exported:
-      export:
-        version: 1.0.0
-        recursive: 0
-        withIntegrated: 2
-        tar: 0
-        exportedReflector: 'reflector::exported.export'
-        exportedFilesReflector: 'reflector::exported.files.export'
-        exportedDirPath: 'path::exported.dir.export'
-        exportedFilesPath: 'path::exported.files.export'
         criterion:
           default: 1
           export: 1
